@@ -1,0 +1,106 @@
+body {
+    background-image: url("https://source.unsplash.com/2000x1100/?food");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 2em;
+    color: #000000;
+    margin: auto;
+    width: 25%;
+    height: 2em;
+}
+
+.hide {
+    display: none;
+}
+
+.starter {
+   margin: auto;
+   background-color: #ffffff;
+   border: none;
+   outline: none;
+   padding: .4em 1em;
+   border-radius: 23px;
+   width: 34%;
+   margin-top: 10%;
+
+}
+
+.subStarter {
+    display: flex;
+    margin: auto;
+    width: 45%;
+    margin-bottom: 5%;
+}
+
+
+
+.subStarter button {
+    border-radius: 50%;
+    border: none;
+    height: 3em;
+    width: 3em;
+    outline: none;
+    background: #3e3939;
+    color: rgb(255, 255, 255);
+}
+
+.searchThis {
+    border: none;
+    outline: none;
+    padding: .4em 1em;
+    border-radius: 23px;
+    background: #3e3939;
+    color: rgb(255, 255, 255);
+    font-family: inherit;
+    font-size: 110%;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    
+    
+}
+
+button:hover {
+    background: gold;
+}
+
+.mainContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.videoDisplay {
+    transform: scale(2.4);
+    margin: 12% 10% 12% 10%;
+}
+
+.nutritionDisplay {
+    background: #000000d0;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    width: 80%;
+    margin: 1em;
+}
+
+.foodContents {
+    margin: auto;
+    width: 100%;
+}
+
+.dish {
+    margin: auto;
+    width: 10%;
+    font-size: 3em;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 2em;
+}
