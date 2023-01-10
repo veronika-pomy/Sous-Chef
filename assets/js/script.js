@@ -8,10 +8,16 @@ const nutritionDisplayEl = document.querySelector(".nutritionDisplay")
 searchBtn.addEventListener("click", searchRecipe)
 
 function searchRecipe() {
-    if (searchedItem) {
-    searchEl.classList.add("hide");
-    videoDisplayEl.classList.remove("hide");
-    nutritionDisplayEl.classList.remove("hide");
+    let userSearch = document.querySelector(".searchThis").value
+
+    if (userSearch == "" || userSearch.length == 0 || userSearch == null) {
+        errorMess.classList.remove("hide");
+        return
+    }
+    else if (userSearch !== "" || userSearch.length !== 0 || userSearch !== null) {
+        searchEl.classList.add("hide");
+        videoDisplayEl.classList.remove("hide");
+        nutritionDisplayEl.classList.remove("hide");
     }
     else { 
         return
@@ -89,3 +95,13 @@ document.querySelector(".searchThis").addEventListener("keyup", function (event)
 
 
 
+var closeBtn = document.querySelector(".closeBtn")
+var errorMess = document.querySelector(".errorMessage")
+
+closeBtn.addEventListener("click", mainMenu)
+
+function mainMenu() {
+    errorMess.classList.add("hide");
+}
+
+  

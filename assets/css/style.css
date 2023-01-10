@@ -4,12 +4,10 @@ body {
     background-size: cover;
 }
 
-h1 {
+.starter h1 {
     font-size: 2em;
-    color: #000000;
-    margin: auto;
-    width: 25%;
     height: 2em;
+    text-align: center;
 }
 
 .hide {
@@ -17,21 +15,23 @@ h1 {
 }
 
 .starter {
-   margin: auto;
-   background-color: #ffffff;
-   border: none;
-   outline: none;
-   padding: .4em 1em;
-   border-radius: 23px;
-   width: 34%;
-   margin-top: 10%;
+    margin: auto;
+    border: none;
+    outline: none;
+    margin-top: 10%;
+    background: #000000d0;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 1%;
 
 }
 
 .subStarter {
     display: flex;
-    margin: auto;
-    width: 45%;
+    justify-content: center;
     margin-bottom: 5%;
 }
 
@@ -86,21 +86,51 @@ button:hover {
     width: 80%;
     margin: 1em;
 }
-
 .foodContents {
-    margin: auto;
-    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.5em;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 .dish {
     margin: auto;
-    width: 10%;
+    width: 0%;
     font-size: 3em;
+    text-transform: capitalize;
 }
 
-ul {
+.errorMessage {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    font-size: 2em;
+    background-color:#000000d0;
+    margin: 0% 32% 0% 32%;
+    font-size: 1.3rem;
+    border-radius: 30px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    color: darkorange;
+}
+
+
+
+.errorMessage p {
+   font-size: 2rem;
+
+}
+
+.errorMessage button {
+    margin: auto;
+    width: 10%;
+    line-height: 2rem;
+}
+
+.hide {
+    display: none;
+}
+
+::placeholder {
+    color: white;
 }
