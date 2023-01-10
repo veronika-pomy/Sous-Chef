@@ -1,15 +1,14 @@
-const searchBtn = document.querySelector(".searchBtn")
+const searchBtn = document.querySelector(".search-btn")
 const searchEl = document.querySelector(".starter")
-const searchedItem = document.querySelector(".searchThis")
-const mainContentEl = document.querySelector(".mainContent")
-const videoDisplayEl = document.querySelector(".videoDisplay")
-const nutritionDisplayEl = document.querySelector(".nutritionDisplay")
-const recipeHistoryEl = document.querySelector(".search-history")
+const searchedItem = document.querySelector(".search-this")
+const mainContentEl = document.querySelector(".main-content")
+const videoDisplayEl = document.querySelector(".video-display")
+const nutritionDisplayEl = document.querySelector(".nutrition-display")
 
 searchBtn.addEventListener("click", searchRecipe)
 
 function searchRecipe() {
-    let userSearch = document.querySelector(".searchThis").value
+    let userSearch = document.querySelector(".search-this").value
 
     if (userSearch == "" || userSearch.length == 0 || userSearch == null) {
         errorMess.classList.remove("hide");
@@ -85,18 +84,18 @@ let dish =  {
     },
     
     search: function () {
-       this.searchFood(document.querySelector(".searchThis").value);
+       this.searchFood(document.querySelector(".search-this").value);
     }
 };
 
-document.querySelector(".searchBtn").addEventListener("click", function () {
+document.querySelector(".search-btn").addEventListener("click", function () {
    dish.search();
    searchRecipe()
   
 
 })
 
-document.querySelector(".searchThis").addEventListener("keyup", function (event) {
+document.querySelector(".search-this").addEventListener("keyup", function (event) {
    if(event.key == "Enter"){
        dish.search();
        searchRecipe()
@@ -125,8 +124,8 @@ if (recipiesToRender) {
 };
 
 
-var closeBtn = document.querySelector(".closeBtn")
-var errorMess = document.querySelector(".errorMessage")
+var closeBtn = document.querySelector(".close-btn")
+var errorMess = document.querySelector(".error-message")
 
 closeBtn.addEventListener("click", mainMenu)
 

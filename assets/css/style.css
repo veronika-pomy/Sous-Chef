@@ -36,7 +36,7 @@ body {
 
 }
 
-.subStarter {
+.sub-starter {
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
@@ -44,7 +44,7 @@ body {
 
 
 
-.subStarter button {
+.sub-starter button {
     border-radius: 50%;
     border: none;
     height: 3em;
@@ -54,7 +54,7 @@ body {
     color: rgb(255, 255, 255);
 }
 
-.searchThis {
+.search-this {
     border: none;
     outline: none;
     padding: .4em 1em;
@@ -73,19 +73,19 @@ button:hover {
     background: gold;
 }
 
-.mainContent {
+.main-content {
     display: flex;
     align-items: center;
     flex-direction: column;
     
 }
 
-.videoDisplay {
+.video-display {
     transform: scale(2.4);
     margin: 12% 10% 12% 10%;
 }
 
-.nutritionDisplay {
+.nutrition-display {
     background: #000000d0;
     color: white;
     padding: 2em;
@@ -93,7 +93,7 @@ button:hover {
     width: 80%;
     margin: 1em;
 }
-.foodContents {
+.food-contents {
     display: flex;
     justify-content: space-evenly;
     font-size: 1.5em;
@@ -108,7 +108,7 @@ button:hover {
     text-transform: capitalize;
 }
 
-.errorMessage {
+.error-message {
     display: flex;
     background-color:#000000d0;
     margin: 0% 32% 0% 32%;
@@ -123,12 +123,12 @@ button:hover {
 
 
 
-.errorMessage p {
+.error-message p {
    font-size: 2rem;
 
 }
 
-.errorMessage button {
+.error-message button {
     margin: auto;
     width: 10%;
     line-height: 2rem;
