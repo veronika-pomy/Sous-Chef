@@ -9,26 +9,6 @@ const errorMess = document.querySelector(".error-message")
 
 
 
-function searchRecipe(data) {
-    console.log (data)
-    let userSearch = document.querySelector(".search-this").value
-
-    if (userSearch == "" || userSearch.length == 0 || userSearch == null) {
-        errorMess.classList.remove("hide");
-        return
-    }
-    else if (userSearch !== "" || userSearch.length !== 0 || userSearch !== null) {
-        if (data){
-        searchEl.classList.add("hide");
-        videoDisplayEl.classList.remove("hide");
-        nutritionDisplayEl.classList.remove("hide");
-        }
-    }
-    else { 
-        return
-    }
-}
-
 
 
 const options = {
@@ -163,5 +143,18 @@ closeBtn.addEventListener("click", mainMenu)
 function mainMenu() {
     errorMess.classList.add("hide");
 }
+
+
+colorChange()
+
+const textColorList = ['#000000', '#ffffff', '#00ff00', '#ff0000'];
+
+function colorChange() {
+    
+  var randomNumber = Math.floor(Math.random()*bgcolorlist.length)
+  $('.logo').css({         
+    color: textColorList[randomNumber]
+  });
+};
 
   
