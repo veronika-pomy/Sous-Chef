@@ -4,10 +4,13 @@ const searchedItem = document.querySelector(".search-this")
 const mainContentEl = document.querySelector(".main-content")
 const videoDisplayEl = document.querySelector(".video-display")
 const nutritionDisplayEl = document.querySelector(".nutrition-display")
+const closeBtn = document.querySelector(".close-btn")
+const errorMess = document.querySelector(".error-message")
 
-searchBtn.addEventListener("click", searchRecipe)
 
-function searchRecipe() {
+
+function searchRecipe(data) {
+    console.log (data)
     let userSearch = document.querySelector(".search-this").value
 
     if (userSearch == "" || userSearch.length == 0 || userSearch == null) {
@@ -15,9 +18,11 @@ function searchRecipe() {
         return
     }
     else if (userSearch !== "" || userSearch.length !== 0 || userSearch !== null) {
+        if (data){
         searchEl.classList.add("hide");
         videoDisplayEl.classList.remove("hide");
         nutritionDisplayEl.classList.remove("hide");
+        }
     }
     else { 
         return
@@ -50,11 +55,38 @@ let dish =  {
 
            .then(response => response.json())
             // .then(response => console.log(response))
-            .then(data => this.searchFood1(data))
-            .catch(err => console.error(err));
+            // .then(data => this.searchFood1(data))
+            .then(data => {
+                this.searchRecipe(data)
+                this.searchFood1(data)})
+            .catch(err =>  
+                {if (err){
+                errorMess.classList.remove("hide");
+                }
+                console.log (err)
+            } 
+            ) 
+            
+
+            
+                    
+    },
+    searchRecipe: function(data) {
+        // throw new Error("no data")
+        
+        console.log (data)
+       
+            if (data.items.length > 0){
+            searchEl.classList.add("hide");
+            videoDisplayEl.classList.remove("hide");
+            nutritionDisplayEl.classList.remove("hide");
+            }
+        
        
     },
+
     searchFood1: function(data){
+        
         console.log(data)
         let {calories, fat_total_g, sugar_g, fiber_g, cholesterol_mg, sodium_mg, protein_g, carbohydrates_total_g,name} = data.items[0];
         console.log (calories,fat_total_g,sugar_g,fiber_g,cholesterol_mg,sodium_mg,protein_g,carbohydrates_total_g,name);
@@ -90,7 +122,7 @@ let dish =  {
 
 document.querySelector(".search-btn").addEventListener("click", function () {
    dish.search();
-   searchRecipe()
+   
   
 
 })
@@ -98,7 +130,7 @@ document.querySelector(".search-btn").addEventListener("click", function () {
 document.querySelector(".search-this").addEventListener("keyup", function (event) {
    if(event.key == "Enter"){
        dish.search();
-       searchRecipe()
+       
         
 
    }
@@ -115,17 +147,16 @@ if (recipiesToRender) {
     var historyHeader = document.createElement('h3');
     historyHeader.textContent = "Previously Searched";
     historyHeader.setAttribute("class", "history-header");
-    recipeHistoryEl.appendChild(historyHeader);
-    for (var i = 0; i < recipiesToRender.length; i++) {
-        var newBtn = document.createElement('button');
-        newBtn.textContent = recipiesToRender[i];
-        recipeHistoryEl.appendChild(newBtn);
-    };
+    // recipeHistoryEl.appendChild(historyHeader);
+    // for (var i = 0; i < recipiesToRender.length; i++) {
+    //     var newBtn = document.createElement('button');
+    //     newBtn.textContent = recipiesToRender[i];
+    //     recipeHistoryEl.appendChild(newBtn);
+    // };
 };
 
 
-var closeBtn = document.querySelector(".close-btn")
-var errorMess = document.querySelector(".error-message")
+
 
 closeBtn.addEventListener("click", mainMenu)
 
