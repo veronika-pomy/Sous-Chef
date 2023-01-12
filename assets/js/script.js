@@ -4,6 +4,7 @@ const searchedItem = document.querySelector(".search-this")
 const mainContentEl = document.querySelector(".main-content")
 const videoDisplayEl = document.querySelector(".video-display")
 const nutritionDisplayEl = document.querySelector(".nutrition-display")
+const recipeHistoryEl = 
 
 searchBtn.addEventListener("click", searchRecipe)
 
@@ -111,10 +112,6 @@ var recipiesToRender = JSON.parse(localStorage.getItem("foodSearch"));
 console.log(recipiesToRender);
 
 if (recipiesToRender) {
-    // may not need the header 
-    var historyHeader = document.createElement('h3');
-    historyHeader.textContent = "Previously Searched";
-    historyHeader.setAttribute("class", "history-header");
     recipeHistoryEl.appendChild(historyHeader);
     for (var i = 0; i < recipiesToRender.length; i++) {
         var newBtn = document.createElement('button');
