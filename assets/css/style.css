@@ -1,7 +1,7 @@
 body {
     background-image: url("https://source.unsplash.com/2000x1100/?food");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .search-history {
@@ -140,4 +140,33 @@ button:hover {
 
 ::placeholder {
     color: white;
+}
+
+
+
+
+footer {
+    display: flex;
+}
+
+.logo-holder {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+}
+
+.pre-logo {
+    color: blue;
+}
+
+.logo {
+    font-size: 4em;
+    color: blue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;  
+
+
 }
