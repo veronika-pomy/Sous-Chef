@@ -18,7 +18,13 @@ function searchRecipe() {
     }
 }
 
-
+const Youtube = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': 'AIzaSyDkobBjk39NViI1hM7ZWwBje3BeJBi627M',
+		'X-RapidAPI-Host': 'https://youtube.googleapis.com'
+  }
+};
 
 const options = {
 	method: 'GET',
@@ -48,6 +54,21 @@ let dish =  {
             .catch(err => console.error(err));
        
     },
+    searchYoutubeRecipe: function (food) {
+    
+    fetch(
+      'https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyDkobBjk39NViI1hM7ZWwBje3BeJBi627M&part=snippet&maxResults=1&q=' + food + " recipe")
+      .then(response => response.json())
+      .then(data => this.searchByKeyword(data))
+      .catch(err => console.error(err));
+    },
+    searchByKeyword: function (data) {
+      console.log(data)
+      let {videoId} = data.items[0].id
+       console.log(videoId)
+       document.querySelector(".video").src= "https://www.youtube.com/embed/" + videoId
+},
+
     searchFood1: function(data){
         console.log(data)
        let {calories, fat_total_g, sugar_g, fiber_g, cholesterol_mg, sodium_mg, protein_g, carbohydrates_total_g,name} = data.items[0];
@@ -66,6 +87,7 @@ let dish =  {
     
     search: function () {
        this.searchFood(document.querySelector(".searchThis").value);
+       this.searchYoutubeRecipe(document.querySelector(".searchThis").value);
     }
 };
 
@@ -86,6 +108,27 @@ document.querySelector(".searchThis").addEventListener("keyup", function (event)
 
 
 })
+ 
+
+  let recipe = {
+    searchYoutubeRecipe: function (food) {
+    
+    fetch(
+      'https://youtube.googleapis.com/youtube/v3/search?part=q=' + food + " recipe", Youtube)
+      .then(response => response.json())
+      .then(data => this.searchByKeyword(data))
+      .catch(err => console.error(err));
+    },
+    searchByKeyword: function (data) {
+      console.log(data)
+  var results = YouTube.Search.list('id,snippet', {q: 'dogs', maxResults: 25});
+  for(var i in results.items) {
+    var item = results.items[i];
+    Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
+  }
+}
+  }
+
 
 
 
