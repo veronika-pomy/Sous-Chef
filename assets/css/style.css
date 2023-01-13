@@ -81,7 +81,7 @@ button:hover {
 }
 
 .video-display {
-    transform: scale(2.4);
+    transform: scale(2);
     margin: 12% 10% 12% 10%;
 }
 
@@ -167,6 +167,8 @@ footer {
 .pre-logo {
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 5px gold;
+    padding-left: 10%;
+    padding-bottom: 2%;
     
 }
 
@@ -175,7 +177,7 @@ footer {
     color: rgb(255, 255, 255);
     margin: -8%;
     text-shadow: 2px 2px 5px gold;
-    font-family: 'PT Serif', serif;
+    font-family: 'Petit Formal Script', cursive;
     padding-bottom: 3%;
     padding-left: 5%;
 
