@@ -108,7 +108,7 @@ let dish =  {
 
             limit = recipeSearchArr.length + 1;
 
-            // if the recipe was saved in search history, don't add it again
+            // if the recipe was saved in search history, don't add it again and fetch data
             for (var i = 0; i < limit; i++) {
                 if ( name === recipeSearchArr[i] ) {
                     recipeSearchArr[i] = name;
@@ -119,7 +119,7 @@ let dish =  {
             // save searched recipe name in local storage     
             recipeSearchArr.push(name);
             localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
-
+            dish.search();
         };
 
        document.querySelector(".dish").innerText = name;
