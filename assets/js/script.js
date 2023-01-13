@@ -8,8 +8,6 @@ const closeBtn = document.querySelector(".close-btn")
 const errorMess = document.querySelector(".error-message")
 const recipeHistoryEl = document.querySelector(".search-history")
 const refreshBtn = document.querySelector(".refresh-btn")
-var localStorageContents = localStorage.getItem("foodSearch");
-
 
 window.onload = function() {
     var elements = 
@@ -28,8 +26,6 @@ function getRandomColor() {
     }
     return color;
     }
-
-
 
 const options = {
 	method: 'GET',
@@ -142,24 +138,6 @@ document.querySelector(".search-this").addEventListener("keyup", function (event
 
 })
  
-
-
-
-// render saved foods on page from local storage
-if (localStorageContents) {
-    var recipiesToRender = JSON.parse(localStorageContents);
-};
-
-// why it doesn't insert button right away?
-if (recipiesToRender) {
-
-    for (var i = 0; i < recipiesToRender.length; i++) {
-        var newBtn = document.createElement('button');
-        newBtn.textContent = recipiesToRender[i];
-        recipeHistoryEl.appendChild(newBtn);
-    };
-};
-
 closeBtn.addEventListener("click", mainMenu)
 
 function mainMenu() {
@@ -171,20 +149,9 @@ refreshBtn.addEventListener("click", function ( ) {
     localStorage.setItem("foodSearch","");
 });
 
-colorChange()
-
-const textColorList = ['#000000', '#ffffff', '#00ff00', '#ff0000'];
-
-function colorChange() {
-    
-  var randomNumber = Math.floor(Math.random()*bgcolorlist.length)
-  $('.logo').css({         
-    color: textColorList[randomNumber]
-  });
-};
-
 function getItems (name) {
 
+    console.log(name);
     var localStorageContents = localStorage.getItem("foodSearch");
 
             // use to store food in localStorage 
@@ -215,7 +182,7 @@ function getItems (name) {
                     var recipiesToRender = JSON.parse(localStorageContents);
                 };
 
-                // why it doesn't insert button right away?
+
                 if (recipiesToRender) {
 
                     for (var i = 0; i < recipiesToRender.length; i++) {
