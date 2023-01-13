@@ -1,7 +1,7 @@
 body {
     background-image: url("https://source.unsplash.com/2000x1100/?food");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 .search-history {
@@ -147,26 +147,34 @@ button:hover {
 
 footer {
     display: flex;
+    justify-content: flex-end;
+    margin-top: 27%;
 }
 
 .logo-holder {
     display: flex;
     flex-direction: column;
-    position: relative;
-    min-height: 100vh;
+    align-items: flex-start;
+    background-color:#000000d0;
+    font-size: 1.5rem;
+    border-radius: 30px;
+    padding:0% 2% 2% 2%;
+    line-height: 3em;
+   
 }
 
 .pre-logo {
-    color: blue;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px gold;
+    
 }
 
 .logo {
     font-size: 4em;
     color: blue;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;  
+    margin: -8%;
+    text-shadow: 2px 2px 5px gold;
+
 
 
 }
