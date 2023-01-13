@@ -63,7 +63,7 @@ let dish =  {
                 {if (err){
                 errorMess.classList.remove("hide");
                 }
-                console.log (err)
+                console.error(err)
             } 
             ) 
             
@@ -105,35 +105,34 @@ let dish =  {
         let {calories, fat_total_g, sugar_g, fiber_g, cholesterol_mg, sodium_mg, protein_g, carbohydrates_total_g,name} = data.items[0];
         console.log (calories,fat_total_g,sugar_g,fiber_g,cholesterol_mg,sodium_mg,protein_g,carbohydrates_total_g,name);
         
-        // use to store food in localStorage 
-        var recipeSearchArr = [];
-        // pull anything saved in local storage into the array first 
-        if (localStorageContents) {
-            var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
-            if (savedRecipe) {
-                recipeSearchArr = savedRecipe;
-            };
-        };
+        // // use to store food in localStorage 
+        // var recipeSearchArr = [];
+        // // pull anything saved in local storage into the array first 
+        // if (localStorageContents) {
+        //     var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
+        //     if (savedRecipe) {
+        //         recipeSearchArr = savedRecipe;
+        //     };
+        // };
 
-        var limit;
-        // limit number of searches to under 10, after that nothing is saved in local storage 
-        if (recipeSearchArr.length <= 9) {
+        // var limit;
+        // // limit number of searches to under 10, after that nothing is saved in local storage 
+        // if (recipeSearchArr.length <= 9) {
 
-            limit = recipeSearchArr.length + 1;
+        //     limit = recipeSearchArr.length + 1;
 
-            // if the recipe was saved in search history, don't add it again and fetch data
-            for (var i = 0; i < limit; i++) {
-                if ( name === recipeSearchArr[i] ) {
-                    recipeSearchArr[i] = name;
-                    return; 
-                };
-            };
+        //     // if the recipe was saved in search history, don't add it again and fetch data
+        //     for (var i = 0; i < limit; i++) {
+        //         if ( name === recipeSearchArr[i] ) {
+        //             recipeSearchArr[i] = name;
+        //             return; 
+        //         };
+        //     };
 
-            // save searched recipe name in local storage     
-            recipeSearchArr.push(name);
-            localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
-            dish.search();
-        };
+        //     // save searched recipe name in local storage     
+        //     recipeSearchArr.push(name);
+        //     localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
+        // };
 
        document.querySelector(".dish").innerText = name;
        document.querySelector(".calories").innerText = "Calories: " + calories;
@@ -144,6 +143,7 @@ let dish =  {
        document.querySelector(".sodium").innerText = "Sodium: " + sodium_mg + "mg";
        document.querySelector(".sugar").innerText = "Sugar: " + sugar_g + "g";
        document.querySelector(".fiber").innerText = "Fiber: " + fiber_g + " g";
+       return
     },
     
     search: function () {
