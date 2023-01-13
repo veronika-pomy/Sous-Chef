@@ -10,13 +10,26 @@ const recipeHistoryEl = document.querySelector(".search-history")
 const refreshBtn = document.querySelector(".refresh-btn")
 var localStorageContents = localStorage.getItem("foodSearch");
 
-const Youtube = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': 'AIzaSyDkobBjk39NViI1hM7ZWwBje3BeJBi627M',
-		'X-RapidAPI-Host': 'https://youtube.googleapis.com'
-  }
+
+window.onload = function() {
+    var elements = 
+    document.getElementsByClassName("logo")
+    for (var i = 0; i < elements.length; i++){
+    elements[i].style.color =
+    getRandomColor();
+    }
 };
+
+function getRandomColor() {
+    var letters = "012345789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }
+
+
 
 const options = {
 	method: 'GET',
@@ -134,8 +147,8 @@ let dish =  {
     },
     
     search: function () {
-       this.searchFood(document.querySelector(".searchThis").value);
-       this.searchYoutubeRecipe(document.querySelector(".searchThis").value);
+       this.searchFood(document.querySelector(".search-this").value);
+       this.searchYoutubeRecipe(document.querySelector(".search-this").value);
     }
 };
 
@@ -158,24 +171,6 @@ document.querySelector(".search-this").addEventListener("keyup", function (event
 })
  
 
-  let recipe = {
-    searchYoutubeRecipe: function (food) {
-    
-    fetch(
-      'https://youtube.googleapis.com/youtube/v3/search?part=q=' + food + " recipe", Youtube)
-      .then(response => response.json())
-      .then(data => this.searchByKeyword(data))
-      .catch(err => console.error(err));
-    },
-    searchByKeyword: function (data) {
-      console.log(data)
-  var results = YouTube.Search.list('id,snippet', {q: 'dogs', maxResults: 25});
-  for(var i in results.items) {
-    var item = results.items[i];
-    Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
-  }
-}
-  }
 
 
 // render saved foods on page from local storage
@@ -204,16 +199,3 @@ refreshBtn.addEventListener("click", function ( ) {
     localStorage.setItem("foodSearch","");
 });
 
-colorChange()
-
-const textColorList = ['#000000', '#ffffff', '#00ff00', '#ff0000'];
-
-function colorChange() {
-    
-  var randomNumber = Math.floor(Math.random()*bgcolorlist.length)
-  $('.logo').css({         
-    color: textColorList[randomNumber]
-  });
-};
-
-  
