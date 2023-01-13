@@ -10,7 +10,7 @@ const recipeHistoryEl = document.querySelector(".search-history")
 const refreshBtn = document.querySelector(".refresh-btn")
 
 
-// getItems()
+
 
 window.onload = function() {
     var elements = 
@@ -178,20 +178,12 @@ function getItems (name) {
                  else {
                 recipeSearchArr.push(name);
                 localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr));}
-                 }
+                 };
 
-
-                // if (recipiesToRender) {
-                //   console.log(recipiesToRender)
-
-                //     for (var i = 0; i < recipiesToRender.length; i++) {
-                //         var newBtn = document.createElement('button');
-                //         newBtn.textContent = recipiesToRender[i];
-                //         recipeHistoryEl.appendChild(newBtn);
-                //         };
-                //     };
                 };
 
+
+// render local storage history as buttons 
 function renderStorage ( ) {
     var checkStorage = localStorage.getItem("foodSearch");
 
