@@ -10,7 +10,7 @@ const recipeHistoryEl = document.querySelector(".search-history")
 const refreshBtn = document.querySelector(".refresh-btn")
 
 
-getItems()
+// getItems()
 
 window.onload = function() {
     var elements = 
@@ -181,19 +181,35 @@ function getItems (name) {
                  }
 
 
-                if (recipiesToRender) {
-                  console.log(recipiesToRender)
+                // if (recipiesToRender) {
+                //   console.log(recipiesToRender)
 
-                    for (var i = 0; i < recipiesToRender.length; i++) {
-                        var newBtn = document.createElement('button');
-                        newBtn.textContent = recipiesToRender[i];
-                        recipeHistoryEl.appendChild(newBtn);
-
-
-                      
-                        
-                        }
-                    };
+                //     for (var i = 0; i < recipiesToRender.length; i++) {
+                //         var newBtn = document.createElement('button');
+                //         newBtn.textContent = recipiesToRender[i];
+                //         recipeHistoryEl.appendChild(newBtn);
+                //         };
+                //     };
                 };
 
+function renderStorage ( ) {
+    var checkStorage = localStorage.getItem("foodSearch");
 
+
+    
+    if (checkStorage) {
+        
+        checkStorage = JSON.parse(checkStorage);
+        
+        for (var i = 0; i < checkStorage.length; i++) {
+            var newBtn = document.createElement('button');
+            newBtn.textContent = checkStorage[i];
+            recipeHistoryEl.appendChild(newBtn);
+        };
+
+    };
+    console.log(checkStorage);
+    console.log(typeof checkStorage);
+};
+
+renderStorage ( );
