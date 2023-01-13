@@ -105,36 +105,6 @@ let dish =  {
         let {calories, fat_total_g, sugar_g, fiber_g, cholesterol_mg, sodium_mg, protein_g, carbohydrates_total_g,name} = data.items[0];
         console.log (calories,fat_total_g,sugar_g,fiber_g,cholesterol_mg,sodium_mg,protein_g,carbohydrates_total_g,name);
         
-        // use to store food in localStorage 
-        var recipeSearchArr = [];
-        // pull anything saved in local storage into the array first 
-        if (localStorageContents) {
-            var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
-            if (savedRecipe) {
-                recipeSearchArr = savedRecipe;
-            };
-        };
-
-        var limit;
-        // limit number of searches to under 10, after that nothing is saved in local storage 
-        if (recipeSearchArr.length <= 9) {
-
-            limit = recipeSearchArr.length + 1;
-
-            // if the recipe was saved in search history, don't add it again and fetch data
-            for (var i = 0; i < limit; i++) {
-                if ( name === recipeSearchArr[i] ) {
-                    recipeSearchArr[i] = name;
-                    return; 
-                };
-            };
-
-            // save searched recipe name in local storage     
-            recipeSearchArr.push(name);
-            localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
-            dish.search();
-        };
-
        document.querySelector(".dish").innerText = name;
        document.querySelector(".calories").innerText = "Calories: " + calories;
        document.querySelector(".fat").innerText = "Fat: " + fat_total_g + "g";
@@ -144,6 +114,8 @@ let dish =  {
        document.querySelector(".sodium").innerText = "Sodium: " + sodium_mg + "mg";
        document.querySelector(".sugar").innerText = "Sugar: " + sugar_g + "g";
        document.querySelector(".fiber").innerText = "Fiber: " + fiber_g + " g";
+
+       getItems (name);
     },
     
     search: function () {
@@ -199,3 +171,60 @@ refreshBtn.addEventListener("click", function ( ) {
     localStorage.setItem("foodSearch","");
 });
 
+colorChange()
+
+const textColorList = ['#000000', '#ffffff', '#00ff00', '#ff0000'];
+
+function colorChange() {
+    
+  var randomNumber = Math.floor(Math.random()*bgcolorlist.length)
+  $('.logo').css({         
+    color: textColorList[randomNumber]
+  });
+};
+
+function getItems (name) {
+
+    var localStorageContents = localStorage.getItem("foodSearch");
+
+            // use to store food in localStorage 
+            var recipeSearchArr = [];
+            // pull anything saved in local storage into the array first 
+            if (localStorageContents) {
+                var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
+                if (savedRecipe) {
+                    recipeSearchArr = savedRecipe;
+                };
+            };
+    
+            if (recipeSearchArr.length <= 9) {
+    
+                // limit = recipeSearchArr.length + 1;
+    
+                // if the recipe was saved in search history, don't add it again and fetch data
+                if(recipeSearchArr.indexOf(name) !== -1) {
+                    return;
+                };
+    
+                // save searched recipe name in local storage     
+                recipeSearchArr.push(name);
+                localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
+
+                // render saved foods on page from local storage
+                if (localStorageContents) {
+                    var recipiesToRender = JSON.parse(localStorageContents);
+                };
+
+                // why it doesn't insert button right away?
+                if (recipiesToRender) {
+
+                    for (var i = 0; i < recipiesToRender.length; i++) {
+                        var newBtn = document.createElement('button');
+                        newBtn.textContent = recipiesToRender[i];
+                        recipeHistoryEl.appendChild(newBtn);
+                    };
+                };
+            };
+};
+
+  
