@@ -10,6 +10,25 @@ const errorMess = document.querySelector(".error-message")
 
 
 
+window.onload = function() {
+    var elements = 
+    document.getElementsByClassName("logo")
+    for (var i = 0; i < elements.length; i++){
+    elements[i].style.color =
+    getRandomColor();
+    }
+};
+
+function getRandomColor() {
+    var letters = "012345789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }
+
+
 
 const options = {
 	method: 'GET',
@@ -144,17 +163,20 @@ function mainMenu() {
     errorMess.classList.add("hide");
 }
 
-
-colorChange()
-
-const textColorList = ['#000000', '#ffffff', '#00ff00', '#ff0000'];
-
-function colorChange() {
-    
-  var randomNumber = Math.floor(Math.random()*bgcolorlist.length)
-  $('.logo').css({         
-    color: textColorList[randomNumber]
-  });
+window.onload = function() {
+    var elements = 
+    document.getElementsByClassName("logo")
+    for (var i = 0; i < elements.length; i++){
+    elements[i].style.color =
+    getRandomColor();
+    }
 };
 
-  
+function getRandomColor() {
+    var letters = "012345789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }

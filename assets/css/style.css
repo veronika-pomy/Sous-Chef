@@ -148,7 +148,8 @@ button:hover {
 footer {
     display: flex;
     justify-content: flex-end;
-    margin-top: 27%;
+    margin-top: 17%;
+    
 }
 
 .logo-holder {
@@ -171,10 +172,12 @@ footer {
 
 .logo {
     font-size: 4em;
-    color: blue;
+    color: rgb(255, 255, 255);
     margin: -8%;
     text-shadow: 2px 2px 5px gold;
-
+    font-family: 'PT Serif', serif;
+    padding-bottom: 3%;
+    padding-left: 5%;
 
 
 }
