@@ -129,8 +129,8 @@ let dish =  {
     },
     
     search: function () {
-       this.searchFood(document.querySelector(".searchThis").value);
-       this.searchYoutubeRecipe(document.querySelector(".searchThis").value);
+       this.searchFood(document.querySelector(".search-this").value);
+       this.searchYoutubeRecipe(document.querySelector(".search-this").value);
     }
 };
 
@@ -153,24 +153,6 @@ document.querySelector(".search-this").addEventListener("keyup", function (event
 })
  
 
-  let recipe = {
-    searchYoutubeRecipe: function (food) {
-    
-    fetch(
-      'https://youtube.googleapis.com/youtube/v3/search?part=q=' + food + " recipe", Youtube)
-      .then(response => response.json())
-      .then(data => this.searchByKeyword(data))
-      .catch(err => console.error(err));
-    },
-    searchByKeyword: function (data) {
-      console.log(data)
-  var results = YouTube.Search.list('id,snippet', {q: 'dogs', maxResults: 25});
-  for(var i in results.items) {
-    var item = results.items[i];
-    Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
-  }
-}
-  }
 
 
 // render saved foods on page from local storage
@@ -199,20 +181,4 @@ function mainMenu() {
     errorMess.classList.add("hide");
 }
 
-window.onload = function() {
-    var elements = 
-    document.getElementsByClassName("logo")
-    for (var i = 0; i < elements.length; i++){
-    elements[i].style.color =
-    getRandomColor();
-    }
-};
 
-function getRandomColor() {
-    var letters = "012345789ABCDEF";
-    var color = "#";
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-    }
