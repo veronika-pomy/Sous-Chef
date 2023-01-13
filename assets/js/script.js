@@ -27,6 +27,8 @@ function getRandomColor() {
     return color;
     }
 
+
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -149,49 +151,78 @@ refreshBtn.addEventListener("click", function ( ) {
     localStorage.setItem("foodSearch","");
 });
 
+// function recipeHistory (name) {
+
+//     // pulls anything saved from local storage 
+//     var localStorageContents = localStorage.getItem("foodSearch");
+    
+//     // a new searched food is saved in this array
+//     var searchedFoodArr = [];
+//     searchedFoodArr.push(name);
+//     console.log(searchedFoodArr);
+    
+//     if(recipeSearchArr.indexOf(name) !== -1) {
+//         return;
+//     };
+
+//     if (recipiesToRender) {
+
+//         for (var i = 0; i < recipiesToRender.length; i++) {
+//             var newBtn = document.createElement('button');
+//             newBtn.textContent = recipiesToRender[i];
+//             recipeHistoryEl.appendChild(newBtn);
+//             };
+//     };
+
+
+// };
+
+getItems ( );
+
 function getItems (name) {
 
-    console.log(name);
-    var localStorageContents = localStorage.getItem("foodSearch");
+        var localStorageContents = localStorage.getItem("foodSearch");
 
-            // use to store food in localStorage 
-            var recipeSearchArr = [];
-            // pull anything saved in local storage into the array first 
+        // use to store food in localStorage 
+        var recipeSearchArr = [];
+
+        // pull anything saved in local storage into the array first 
+        if (localStorageContents) {
+            var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
+            
+            if (savedRecipe) {
+                recipeSearchArr = savedRecipe;
+            };
+
+        };
+
+
+        if (recipeSearchArr.length <= 9) {
+
+            // if the recipe was saved in search history, don't add it again and fetch data
+            if(recipeSearchArr.indexOf(name) !== -1) {
+                return;
+            };
+
+            // save searched recipe name in local storage     
+            recipeSearchArr.push(name);
+            localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
+
+            // render saved foods on page from local storage
             if (localStorageContents) {
-                var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
-                if (savedRecipe) {
-                    recipeSearchArr = savedRecipe;
-                };
+                var recipiesToRender = JSON.parse(localStorageContents);
             };
-    
-            if (recipeSearchArr.length <= 9) {
-    
-                // limit = recipeSearchArr.length + 1;
-    
-                // if the recipe was saved in search history, don't add it again and fetch data
-                if(recipeSearchArr.indexOf(name) !== -1) {
-                    return;
-                };
-    
-                // save searched recipe name in local storage     
-                recipeSearchArr.push(name);
-                localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
 
-                // render saved foods on page from local storage
-                if (localStorageContents) {
-                    var recipiesToRender = JSON.parse(localStorageContents);
+            if (recipiesToRender) {
+
+                for (var i = 0; i < recipiesToRender.length; i++) {
+                    var newBtn = document.createElement('button');
+                    newBtn.textContent = recipiesToRender[i];
+                    recipeHistoryEl.appendChild(newBtn);
                 };
 
-
-                if (recipiesToRender) {
-
-                    for (var i = 0; i < recipiesToRender.length; i++) {
-                        var newBtn = document.createElement('button');
-                        newBtn.textContent = recipiesToRender[i];
-                        recipeHistoryEl.appendChild(newBtn);
-                    };
-                };
             };
+        };
 };
 
   
