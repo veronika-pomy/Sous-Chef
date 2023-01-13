@@ -6,8 +6,9 @@ const videoDisplayEl = document.querySelector(".video-display")
 const nutritionDisplayEl = document.querySelector(".nutrition-display")
 const closeBtn = document.querySelector(".close-btn")
 const errorMess = document.querySelector(".error-message")
-
-
+const recipeHistoryEl = document.querySelector(".search-history")
+const refreshBtn = document.querySelector(".refresh-btn")
+var localStorageContents = localStorage.getItem("foodSearch");
 
 const Youtube = {
   method: 'GET',
@@ -94,16 +95,33 @@ let dish =  {
         // use to store food in localStorage 
         var recipeSearchArr = [];
         // pull anything saved in local storage into the array first 
-        var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
-        if (savedRecipe) {
-            recipeSearchArr = savedRecipe;
+        if (localStorageContents) {
+            var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
+            if (savedRecipe) {
+                recipeSearchArr = savedRecipe;
+            };
         };
-        // save searched food name in local storage 
-        // Note: limit the number of searches??? 
-        // Note: create a button to delete search history ??? 
-        recipeSearchArr.push(name);
-        localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr));
-    
+
+        var limit;
+        // limit number of searches to under 10, after that nothing is saved in local storage 
+        if (recipeSearchArr.length <= 9) {
+
+            limit = recipeSearchArr.length + 1;
+
+            // if the recipe was saved in search history, don't add it again and fetch data
+            for (var i = 0; i < limit; i++) {
+                if ( name === recipeSearchArr[i] ) {
+                    recipeSearchArr[i] = name;
+                    return; 
+                };
+            };
+
+            // save searched recipe name in local storage     
+            recipeSearchArr.push(name);
+            localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr)); 
+            dish.search();
+        };
+
        document.querySelector(".dish").innerText = name;
        document.querySelector(".calories").innerText = "Calories: " + calories;
        document.querySelector(".fat").innerText = "Fat: " + fat_total_g + "g";
@@ -161,24 +179,19 @@ document.querySelector(".search-this").addEventListener("keyup", function (event
 
 
 // render saved foods on page from local storage
-var recipiesToRender = JSON.parse(localStorage.getItem("foodSearch"));
-console.log(recipiesToRender);
-
-if (recipiesToRender) {
-    // may not need the header 
-    var historyHeader = document.createElement('h3');
-    historyHeader.textContent = "Previously Searched";
-    historyHeader.setAttribute("class", "history-header");
-    // recipeHistoryEl.appendChild(historyHeader);
-    // for (var i = 0; i < recipiesToRender.length; i++) {
-    //     var newBtn = document.createElement('button');
-    //     newBtn.textContent = recipiesToRender[i];
-    //     recipeHistoryEl.appendChild(newBtn);
-    // };
+if (localStorageContents) {
+    var recipiesToRender = JSON.parse(localStorageContents);
 };
 
+// why it doesn't insert button right away?
+if (recipiesToRender) {
 
-
+    for (var i = 0; i < recipiesToRender.length; i++) {
+        var newBtn = document.createElement('button');
+        newBtn.textContent = recipiesToRender[i];
+        recipeHistoryEl.appendChild(newBtn);
+    };
+};
 
 closeBtn.addEventListener("click", mainMenu)
 
@@ -186,6 +199,10 @@ function mainMenu() {
     errorMess.classList.add("hide");
 }
 
+// empty local storage and get rid of history buttons
+refreshBtn.addEventListener("click", function ( ) {
+    localStorage.setItem("foodSearch","");
+});
 
 colorChange()
 
