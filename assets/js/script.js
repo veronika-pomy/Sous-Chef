@@ -120,8 +120,10 @@ let dish =  {
     },
     
     search: function () {
+
        this.searchFood(document.querySelector(".search-this").value);
        this.searchYoutubeRecipe(document.querySelector(".search-this").value);
+       
     }
 };
 
@@ -196,12 +198,25 @@ function renderStorage ( ) {
         for (var i = 0; i < checkStorage.length; i++) {
             var newBtn = document.createElement('button');
             newBtn.textContent = checkStorage[i];
+            newBtn.setAttribute("class","history-btn");
             recipeHistoryEl.appendChild(newBtn);
         };
 
     };
-    console.log(checkStorage);
-    console.log(typeof checkStorage);
+
 };
 
 renderStorage ( );
+
+// capture clicks on history buttons 
+// need to text that the search is working (ran into 403 errors)
+recipeHistoryEl.addEventListener("click", function (event) {
+    var element = event.target;
+
+    if (element.matches("button")) {
+        var searchedFood = element.textContent;
+        console.log(searchedFood);
+        console.log("History button clicked");
+    };
+    
+});
