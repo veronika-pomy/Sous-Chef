@@ -169,10 +169,19 @@ let dish =  {
        getItems (name);
     },
     
-    search: function () {
-       this.searchFood(document.querySelector(".search-this").value);
-       this.searchYoutubeRecipe(document.querySelector(".search-this").value);
+    search: function (input) {
+
+        if (input) {
+            this.searchFood(input);
+            this.searchYoutubeRecipe(input);
+        } else {
+            input = document.querySelector(".search-this").value;
+            this.searchFood(input);
+            this.searchYoutubeRecipe(input);
+        };
+
     }
+
 };
 
 document.querySelector(".search-btn").addEventListener("click", function () {
@@ -247,28 +256,22 @@ function renderStorage ( ) {
         for (var i = 0; i < checkStorage.length; i++) {
             var newBtn = document.createElement('button');
             newBtn.textContent = checkStorage[i];
+            newBtn.setAttribute("class","history-btn");
             recipeHistoryEl.appendChild(newBtn);
         };
 
     };
-    console.log(checkStorage);
-    console.log(typeof checkStorage);
+
 };
 
 renderStorage ( );
 
+// capture clicks on history buttons and search by btn txt
+recipeHistoryEl.addEventListener("click", function (event) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if (event.target.matches("button") && event.target.matches(".history-btn")) {
+        var searchedFood = event.target.textContent;
+        dish.search(searchedFood);
+    };
+    
+});

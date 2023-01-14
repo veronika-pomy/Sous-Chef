@@ -4,13 +4,6 @@ body {
     background-size: cover;
 }
 
-.search-history {
-    background: #000000d0;
-    color: white;
-    border-radius: 10px;
-    padding: 1em;
-}
-
 .starter h1 {
     font-size: 2em;
     height: 2em;
@@ -231,3 +224,40 @@ footer {
     display: none;
 }
 
+
+/* styling history buttons */
+
+.search-history {
+    display: flex;
+    justify-content: left;
+    flex-flow: row wrap;
+}
+
+.history-btn,
+.refresh-btn {
+    background: #000000d0;
+    color: white;
+    border-radius: 10px;
+    padding: 1em 1.5em 1em 1.5em;
+    margin: 1em;
+    text-transform: capitalize;
+    font-size: 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-style: italic;
+    border: none;
+    
+}
+
+.history-btn:hover,
+.refresh-btn:hover {
+    background: #000000d0;
+    color: gold;
+}
+
+/* for smartphones and smaller ipads - set flex-directtion to column for history and refresh buttons */
+@media screen and (max-width: 768px) {
+    .search-history {
+        flex-direction: column;
+    }
+  }
