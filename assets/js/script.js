@@ -8,6 +8,8 @@ const closeBtn = document.querySelector(".close-btn")
 const errorMess = document.querySelector(".error-message")
 const recipeHistoryEl = document.querySelector(".search-history")
 const refreshBtn = document.querySelector(".refresh-btn")
+const recVideos = document.querySelector(".recommended-videos")
+
 
 
 
@@ -63,6 +65,7 @@ let dish =  {
             .catch(err =>  
                 {if (err){
                 errorMess.classList.remove("hide");
+                searchEl.classList.add("hide");
                 }
                 console.error(err)
             } 
@@ -79,8 +82,11 @@ let dish =  {
        
             if (data.items.length > 0){
             searchEl.classList.add("hide");
-            videoDisplayEl.classList.remove("hide");
+            recVideos.classList.remove("hide");
             nutritionDisplayEl.classList.remove("hide");
+            videoDisplayEl.classList.remove("hide");
+            getItems()
+            renderStorage()
             }
         
        
@@ -88,9 +94,14 @@ let dish =  {
     searchYoutubeRecipe: function (food) {
     
     fetch(
-      'https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyDkobBjk39NViI1hM7ZWwBje3BeJBi627M&part=snippet&maxResults=1&q=' + food + " recipe")
+      'https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyDkobBjk39NViI1hM7ZWwBje3BeJBi627M&part=snippet&maxResults=5&q=' + food + " recipe")
       .then(response => response.json())
-      .then(data => this.searchByKeyword(data))
+      .then(data => {
+        this.searchByKeyword(data)
+        this.recommendedVideoSearch(data)
+        this.recommendedVideoSearch2(data)
+        this.recommendedVideoSearch3(data)
+    })
       .catch(err => console.error(err));
     },
     searchByKeyword: function (data) {
@@ -98,7 +109,46 @@ let dish =  {
       let {videoId} = data.items[0].id
        console.log(videoId)
        document.querySelector(".video").src= "https://www.youtube.com/embed/" + videoId
-},
+    },
+    recommendedVideoSearch: function (data) {
+        console.log(data)
+        let {videoId} = data.items[1].id
+        let mediumThumbnail = data.items[1].snippet.thumbnails.medium.url
+        let {title} = data.items[1].snippet
+        console.log(videoId)
+        console.log(mediumThumbnail)
+        console.log(title)
+        document.querySelector(".video-description1").href= "https://www.youtube.com/embed/" + videoId
+        document.querySelector(".thumbnail1").src= mediumThumbnail
+        document.querySelector(".video-description1").innerText= title
+    
+    },
+    recommendedVideoSearch2: function (data) {
+        console.log(data)
+        let {videoId} = data.items[2].id
+        let mediumThumbnail2 = data.items[2].snippet.thumbnails.medium.url
+        let {title} = data.items[2].snippet
+        console.log(videoId)
+        console.log(mediumThumbnail2)
+        console.log(title)
+        document.querySelector(".video-description2").href= "https://www.youtube.com/embed/" + videoId
+        document.querySelector(".thumbnail2").src= mediumThumbnail2
+        document.querySelector(".video-description2").innerText= title
+    
+    },
+    recommendedVideoSearch3: function (data) {
+        console.log(data)
+        let {videoId} = data.items[3].id
+        let mediumThumbnail3 = data.items[3].snippet.thumbnails.medium.url
+        let {title} = data.items[3].snippet
+        console.log(videoId)
+        console.log(mediumThumbnail3)
+        console.log(title)
+        document.querySelector(".video-description3").href= "https://www.youtube.com/embed/" + videoId
+        document.querySelector(".thumbnail3").src= mediumThumbnail3
+        document.querySelector(".video-description3").innerText= title
+    
+    },
 
     searchFood1: function(data){
         
@@ -147,6 +197,7 @@ closeBtn.addEventListener("click", mainMenu)
 
 function mainMenu() {
     errorMess.classList.add("hide");
+    searchEl.classList.remove("hide");
 }
 
 // empty local storage and get rid of history buttons
@@ -205,3 +256,19 @@ function renderStorage ( ) {
 };
 
 renderStorage ( );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

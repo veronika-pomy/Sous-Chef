@@ -80,18 +80,16 @@ button:hover {
     
 }
 
-.video-display {
-    transform: scale(2);
-    margin: 12% 10% 12% 10%;
-}
+
 
 .nutrition-display {
-    background: #000000d0;
+    background: rgba(0, 241, 32, 0.678);
     color: white;
     padding: 2em;
     border-radius: 30px;
     width: 80%;
-    margin: 1em;
+    margin: auto;
+    
 }
 .food-contents {
     display: flex;
@@ -111,7 +109,7 @@ button:hover {
 .error-message {
     display: flex;
     background-color:#000000d0;
-    margin: 0% 32% 0% 32%;
+    margin: 10% 32% 0% 32%;
     font-size: 1.3rem;
     border-radius: 30px;
     text-align: center;
@@ -134,9 +132,7 @@ button:hover {
     line-height: 2rem;
 }
 
-.hide {
-    display: none;
-}
+
 
 ::placeholder {
     color: white;
@@ -183,3 +179,55 @@ footer {
 
 
 }
+.video-display {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.video-area{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-left: 23%;
+}
+
+.video {
+    transform: scale(3.7);
+    margin: 20% 10% 20% 20%;
+}
+.recommended-videos{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: space-between;
+    width: 35%;
+    background-color:rgba(161, 5, 0, 0.5);
+    font-size: 1.5rem;
+    border-radius: 30px;
+    padding:0% 2% 2% 2%;
+    line-height: 3em;
+    color: white;
+    margin-right: 14%;
+
+}
+
+.recommendation{
+    display: flex;
+    justify-content: space-between;
+    line-height: 2em;
+    border: 3px solid rgb(240, 255, 157);
+    padding: 3%;
+    margin: 1%;
+}
+
+.recommendation a {
+    color: rgb(237, 247, 108);
+    margin: auto;
+}
+
+.hide {
+    display: none;
+}
+
