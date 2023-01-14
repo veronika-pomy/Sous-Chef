@@ -119,12 +119,19 @@ let dish =  {
        getItems (name);
     },
     
-    search: function () {
+    search: function (input) {
 
-       this.searchFood(document.querySelector(".search-this").value);
-       this.searchYoutubeRecipe(document.querySelector(".search-this").value);
-       
+        if (input) {
+            this.searchFood(input);
+            this.searchYoutubeRecipe(input);
+        } else {
+            input = document.querySelector(".search-this").value;
+            this.searchFood(input);
+            this.searchYoutubeRecipe(input);
+        };
+
     }
+
 };
 
 document.querySelector(".search-btn").addEventListener("click", function () {
@@ -208,15 +215,12 @@ function renderStorage ( ) {
 
 renderStorage ( );
 
-// capture clicks on history buttons 
-// need to text that the search is working (ran into 403 errors)
+// capture clicks on history buttons and search by btn txt
 recipeHistoryEl.addEventListener("click", function (event) {
-    var element = event.target;
 
-    if (element.matches("button")) {
-        var searchedFood = element.textContent;
-        console.log(searchedFood);
-        console.log("History button clicked");
+    if (event.target.matches("button") && event.target.matches(".history-btn")) {
+        var searchedFood = event.target.textContent;
+        dish.search(searchedFood);
     };
     
 });
