@@ -113,9 +113,9 @@ let dish =  {
         console.log(videoId)
         console.log(mediumThumbnail)
         console.log(title)
-        document.querySelector(".yt-link-recommendation1").href= "https://www.youtube.com/watch?v=" + videoId
+        document.querySelector(".yt-link-recommendation1").href = "https://www.youtube.com/watch?v=" + videoId
         document.querySelector(".thumbnail1").src= mediumThumbnail
-        document.querySelector(".video-description1").innerText= title
+        document.querySelector(".video-description1").innerText = title
     },
     recommendedVideoSearch2: function (data) {
         console.log(data)
@@ -125,7 +125,7 @@ let dish =  {
         console.log(videoId)
         console.log(mediumThumbnail2)
         console.log(title)
-        document.querySelector(".video-description2").href= "https://www.youtube.com/watch?v=" + videoId
+        document.querySelector(".yt-link-recommendation2").href= "https://www.youtube.com/watch?v=" + videoId
         document.querySelector(".thumbnail2").src= mediumThumbnail2
         document.querySelector(".video-description2").innerText= title
     
@@ -138,7 +138,7 @@ let dish =  {
         console.log(videoId)
         console.log(mediumThumbnail3)
         console.log(title)
-        document.querySelector(".video-description3").href= "https://www.youtube.com/watch?v=" + videoId
+        document.querySelector(".yt-link-recommendation3").href= "https://www.youtube.com/watch?v=" + videoId
         document.querySelector(".thumbnail3").src= mediumThumbnail3
         document.querySelector(".video-description3").innerText= title
     
