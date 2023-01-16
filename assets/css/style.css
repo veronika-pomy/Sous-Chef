@@ -63,7 +63,7 @@ body {
 }
 
 button:hover {
-    background: gold;
+    background: rgb(255, 200, 0);
 }
 
 .main-content {
@@ -73,15 +73,13 @@ button:hover {
     
 }
 
-
-
 .nutrition-display {
-    background: rgba(0, 241, 32, 0.678);
+    background: #000000d0;
     color: white;
-    padding: 2em;
     border-radius: 30px;
     width: 80%;
-    margin: auto;
+    margin: 3em;
+    padding-top: 2em;
     
 }
 .food-contents {
@@ -94,14 +92,14 @@ button:hover {
 
 .dish {
     margin: auto;
-    width: 0%;
+    text-align: center;
     font-size: 3em;
     text-transform: capitalize;
 }
 
 .error-message {
     display: flex;
-    background-color:#000000d0;
+    background-color: #000000d0;
     margin: 10% 32% 0% 32%;
     font-size: 1.3rem;
     border-radius: 30px;
@@ -111,8 +109,6 @@ button:hover {
     padding: 2%;
     color: darkorange;
 }
-
-
 
 .error-message p {
    font-size: 2rem;
@@ -125,14 +121,9 @@ button:hover {
     line-height: 2rem;
 }
 
-
-
 ::placeholder {
     color: white;
 }
-
-
-
 
 footer {
     display: flex;
@@ -174,56 +165,78 @@ footer {
 }
 .video-display {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 2em;
     width: 100%;
 }
 
-.video-area{
+.video-area {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-left: 23%;
+    background-color: #000000d0;
+    border-radius: 30px;
+    width: 80%;
 }
 
 .video {
-    transform: scale(3.7);
+    transform: scale(3);
     margin: 20% 10% 20% 20%;
 }
-.recommended-videos{
+.recommended-videos {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
     text-align: center;
     align-content: space-between;
-    width: 35%;
-    background-color:rgba(161, 5, 0, 0.5);
+    width: 100%;
     font-size: 1.5rem;
     border-radius: 30px;
-    padding:0% 2% 2% 2%;
+    padding: 0% 2% 2% 2%;
     line-height: 3em;
     color: white;
-    margin-right: 14%;
+    margin-right: 0;
 
 }
 
-.recommendation{
+.recommendation {
     display: flex;
     justify-content: space-between;
     line-height: 2em;
-    border: 3px solid rgb(240, 255, 157);
+    border-radius: 30px;
     padding: 3%;
     margin: 1%;
 }
 
 .recommendation a {
-    color: rgb(237, 247, 108);
+    color: #F0FF9D;
     margin: auto;
 }
+
+.yt-link-recommendation {
+    color: #F0FF9D;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2em;
+    border: 3px solid white;
+    border-radius: 30px;
+    padding: 3%;
+    margin: 1%;
+}
+
+.yt-link-recommendation:hover {
+    box-shadow: 0 0 0.5em #F0FF9D; 
+  }
 
 .hide {
     display: none;
 }
 
+.our-recommended {
+    color: white;
+    font-weight: bold;
+}
 
 /* styling history buttons */
 
@@ -237,7 +250,6 @@ footer {
 .refresh-btn {
     background: #000000d0;
     color: white;
-    border-radius: 10px;
     padding: 1em 1.5em 1em 1.5em;
     margin: 1em;
     text-transform: capitalize;
@@ -252,12 +264,71 @@ footer {
 .history-btn:hover,
 .refresh-btn:hover {
     background: #000000d0;
-    color: gold;
+    color: rgb(255, 200, 0);
 }
+
+.yt-link {
+    background: #26885dd0;
+    color: white;
+    padding: 1em 1.5em 1em 1.5em;
+    margin: 1em;
+    font-size: 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-style: italic;
+    border: none;
+    text-transform: capitalize;
+}
+
+.main-video-to-yt {
+    text-decoration: none;
+    color: white;
+}
+
+.history-header {
+    padding-bottom: 3em;
+}
+
+/* nutritional display for smaller display size */
+
+@media screen and (max-width: 1200px) {
+    .recommended-videos {
+        flex-direction: column;
+    
+    }
+    .food-contents {
+        flex-direction: column;
+    }
+    .nutrition-display {
+        padding: 1em;
+    }
+    img {
+        width: 20em;
+        height: 20em;
+    }
+
+  }
 
 /* for smartphones and smaller ipads - set flex-directtion to column for history and refresh buttons */
 @media screen and (max-width: 768px) {
     .search-history {
         flex-direction: column;
     }
+    .recommended-videos {
+        flex-direction: column;
+    
+    }
+    .food-contents {
+        flex-direction: column;
+    }
+    .nutrition-display {
+        padding: 1em;
+    }
+    img {
+        width: 10em;
+        height: 10em;
+    }
+
   }
+
+
