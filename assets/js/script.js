@@ -10,10 +10,6 @@ const recipeHistoryEl = document.querySelector(".search-history")
 const refreshBtn = document.querySelector(".refresh-btn")
 const recVideos = document.querySelector(".recommended-videos")
 
-
-
-
-
 window.onload = function() {
     var elements = 
     document.getElementsByClassName("logo")
@@ -30,9 +26,7 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-    }
-
-
+    };
 
 const options = {
 	method: 'GET',
@@ -89,6 +83,8 @@ let dish =  {
         
        
     },
+    // AIzaSyBRBBckAPaB3VQtj9ZwTBPzZkj4yZ0FUh0 Veronika's yt API key
+    // AIzaSyDkobBjk39NViI1hM7ZWwBje3BeJBi627M Cameron's yt API key
     searchYoutubeRecipe: function (food) {
     
     fetch(
@@ -106,7 +102,8 @@ let dish =  {
       console.log(data)
       let {videoId} = data.items[0].id
        console.log(videoId)
-       document.querySelector(".video").src= "https://www.youtube.com/embed/" + videoId
+       document.querySelector(".video").src= "https://www.youtube.com/embed/" + videoId;
+       document.querySelector(".main-video-to-yt").href = "https://www.youtube.com/watch?v=" + videoId;
     },
     recommendedVideoSearch: function (data) {
         console.log(data)
@@ -116,10 +113,9 @@ let dish =  {
         console.log(videoId)
         console.log(mediumThumbnail)
         console.log(title)
-        document.querySelector(".video-description1").href= "https://www.youtube.com/embed/" + videoId
+        document.querySelector(".yt-link-recommendation1").href= "https://www.youtube.com/watch?v=" + videoId
         document.querySelector(".thumbnail1").src= mediumThumbnail
         document.querySelector(".video-description1").innerText= title
-    
     },
     recommendedVideoSearch2: function (data) {
         console.log(data)
@@ -129,7 +125,7 @@ let dish =  {
         console.log(videoId)
         console.log(mediumThumbnail2)
         console.log(title)
-        document.querySelector(".video-description2").href= "https://www.youtube.com/embed/" + videoId
+        document.querySelector(".video-description2").href= "https://www.youtube.com/watch?v=" + videoId
         document.querySelector(".thumbnail2").src= mediumThumbnail2
         document.querySelector(".video-description2").innerText= title
     
@@ -142,7 +138,7 @@ let dish =  {
         console.log(videoId)
         console.log(mediumThumbnail3)
         console.log(title)
-        document.querySelector(".video-description3").href= "https://www.youtube.com/embed/" + videoId
+        document.querySelector(".video-description3").href= "https://www.youtube.com/watch?v=" + videoId
         document.querySelector(".thumbnail3").src= mediumThumbnail3
         document.querySelector(".video-description3").innerText= title
     
@@ -212,41 +208,35 @@ refreshBtn.addEventListener("click", function ( ) {
     localStorage.setItem("foodSearch","");
 });
 
-
-
 function getItems (name) {
 
-        var localStorageContents = localStorage.getItem("foodSearch");
-
-
-            var recipeSearchArr = [];
-            // pull anything saved in local storage into the array first 
-            if (localStorageContents) {
-                var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
-                var recipiesToRender = JSON.parse(localStorageContents);
-                console.log(savedRecipe)
-                if (savedRecipe) {
-                    recipeSearchArr = savedRecipe;
-                };
-            };
+    var localStorageContents = localStorage.getItem("foodSearch");
+    var recipeSearchArr = [];
     
-            if (recipeSearchArr.length <= 9) {
-                if(recipeSearchArr.indexOf(name) !== -1) {
-                }
-                 else {
-                recipeSearchArr.push(name);
-                localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr));}
-                 };
+    // pull anything saved in local storage into the array first 
+    if (localStorageContents) {
+        
+        var savedRecipe = JSON.parse(localStorage.getItem("foodSearch"));
+        var recipiesToRender = JSON.parse(localStorageContents);
+    
+        if (savedRecipe) {
+            recipeSearchArr = savedRecipe;
+        };
+    };
 
-                };
+    if (recipeSearchArr.length <= 9) {
+        if  (recipeSearchArr.indexOf(name) !== -1) {
+            } else {
+            recipeSearchArr.push(name);
+            localStorage.setItem("foodSearch",JSON.stringify(recipeSearchArr));}
+    };
 
+};
 
 // render local storage history as buttons 
 function renderStorage ( ) {
     var checkStorage = localStorage.getItem("foodSearch");
 
-
-    
     if (checkStorage) {
         
         checkStorage = JSON.parse(checkStorage);

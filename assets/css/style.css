@@ -63,7 +63,7 @@ body {
 }
 
 button:hover {
-    background: gold;
+    background: rgb(255, 200, 0);
 }
 
 .main-content {
@@ -110,8 +110,6 @@ button:hover {
     color: darkorange;
 }
 
-
-
 .error-message p {
    font-size: 2rem;
 
@@ -123,14 +121,9 @@ button:hover {
     line-height: 2rem;
 }
 
-
-
 ::placeholder {
     color: white;
 }
-
-
-
 
 footer {
     display: flex;
@@ -210,7 +203,6 @@ footer {
     display: flex;
     justify-content: space-between;
     line-height: 2em;
-    border: 3px solid white;
     border-radius: 30px;
     padding: 3%;
     margin: 1%;
@@ -220,6 +212,22 @@ footer {
     color: #F0FF9D;
     margin: auto;
 }
+
+.yt-link-recommendation {
+    color: #F0FF9D;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2em;
+    border: 3px solid white;
+    border-radius: 30px;
+    padding: 3%;
+    margin: 1%;
+}
+
+.yt-link-recommendation:hover {
+    box-shadow: 0 0 0.5em #F0FF9D; 
+  }
 
 .hide {
     display: none;
@@ -242,7 +250,6 @@ footer {
 .refresh-btn {
     background: #000000d0;
     color: white;
-    border-radius: 10px;
     padding: 1em 1.5em 1em 1.5em;
     margin: 1em;
     text-transform: capitalize;
@@ -254,25 +261,28 @@ footer {
     
 }
 
+.history-btn:hover,
+.refresh-btn:hover {
+    background: #000000d0;
+    color: rgb(255, 200, 0);
+}
+
 .yt-link {
-    text-align: left;
     background: #26885dd0;
     color: white;
-    border-radius: 10px;
     padding: 1em 1.5em 1em 1.5em;
     margin: 1em;
-    text-transform: capitalize;
     font-size: 1rem;
     border-radius: 30px;
     font-weight: bold;
     font-style: italic;
     border: none;
+    text-transform: capitalize;
 }
 
-.history-btn:hover,
-.refresh-btn:hover {
-    background: #000000d0;
-    color: gold;
+.main-video-to-yt {
+    text-decoration: none;
+    color: white;
 }
 
 .history-header {
