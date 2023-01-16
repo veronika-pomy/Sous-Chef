@@ -88,7 +88,7 @@ let dish =  {
     searchYoutubeRecipe: function (food) {
     
     fetch(
-      'https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyDkobBjk39NViI1hM7ZWwBje3BeJBi627M&part=snippet&maxResults=5&q=' + food + " recipe")
+      'https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyBRBBckAPaB3VQtj9ZwTBPzZkj4yZ0FUh0&part=snippet&maxResults=5&q=' + food + " recipe")
       .then(response => response.json())
       .then(data => {
         this.searchByKeyword(data)
