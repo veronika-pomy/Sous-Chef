@@ -85,8 +85,6 @@ let dish =  {
             recVideos.classList.remove("hide");
             nutritionDisplayEl.classList.remove("hide");
             videoDisplayEl.classList.remove("hide");
-            getItems()
-            renderStorage()
             }
         
        
