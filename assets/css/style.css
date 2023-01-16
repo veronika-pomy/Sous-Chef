@@ -10,10 +10,6 @@ body {
     text-align: center;
 }
 
-.hide {
-    display: none;
-}
-
 .starter {
     margin: auto;
     border: none;
@@ -180,8 +176,8 @@ footer {
 }
 
 .video {
-    transform: scale(3);
-    margin: 20% 10% 20% 20%;
+    transform: scale(4);
+    margin: 20% 20% 20% 20%;
 }
 .recommended-videos {
     display: flex;
@@ -211,6 +207,7 @@ footer {
 .recommendation a {
     color: #F0FF9D;
     margin: auto;
+    padding-right: 3%;
 }
 
 .yt-link-recommendation {
@@ -292,6 +289,11 @@ footer {
 /* nutritional display for smaller display size */
 
 @media screen and (max-width: 1200px) {
+    body {
+        background-image: url("https://source.unsplash.com/820x1180/?food");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     .recommended-videos {
         flex-direction: column;
     
@@ -302,9 +304,51 @@ footer {
     .nutrition-display {
         padding: 1em;
     }
+    .yt-link {
+        font-size: 1.2rem;
+    }
+    .video-description1 {
+        padding-right: 2%;
+    }
+    .video-description2 {
+        padding-right: 2%;
+    }
+    .video-description3 {
+        padding-right: 2%;
+    }
     img {
-        width: 20em;
-        height: 20em;
+        width: 10em;
+        height: 10em;
+    }
+    .error-message {
+        margin: 0% 0% 0% 0%;
+        margin: 14%;
+    }
+    .error-message button {
+        width: 30%;
+    }
+    .video {
+        transform: scale(2);
+    }
+    .recommendation {
+        align-items: center;
+    }
+    .pre-logo {
+        font-size: .7em;
+    }
+    .logo {
+        font-size: 1.5em;
+        margin-bottom: 1%;
+    }
+    .logo-holder {
+        line-height: 2em;
+    }
+    footer {
+        margin-top: 70%;
+    }
+
+    .hide{
+        display: none;
     }
 
   }
@@ -325,10 +369,122 @@ footer {
         padding: 1em;
     }
     img {
-        width: 10em;
-        height: 10em;
+        width: 5em;
+        height: 5em;
     }
 
+    .video {
+       transform: scale(1);
+
+    }
+    .pre-logo {
+        font-size: .4em;
+    }
+    .logo {
+        font-size: 1.2em;
+        margin-bottom: 1%;
+    }
+    .logo-holder {
+        line-height: 1.5em;
+    }
+    footer {
+        margin-top: 85%;
+    }
+    .video-description1 {
+        padding-right: 1%;
+    }
+    .video-description2 {
+        padding-right: 1%;
+    }
+    .video-description3 {
+        padding-right: 1%;
+    }
+    .starter {
+        width: 80%;
+    }
+    .starter h1 {
+        font-size: 1.5em;
+    }
+    .search-history {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin: auto;
+    }
+    
+    .history-btn,
+    .refresh-btn {
+        padding: .5em 1em .5em 1em;
+        margin: .1em;   
+    }
+    .error-message {
+        margin: 0% 0% 0% 0%;
+    } 
+    .error-message p {
+       font-size: 2rem;
+    
+    }
+    
+    .error-message button {
+        margin: auto;
+        width: 30%;
+        line-height: 2rem;
+    }
+    body {
+        background-image: url("https://source.unsplash.com/360x760/?food");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .video-area {
+        width: 95%;
+    }
+    .video-display {
+        width: 81%;
+    }
+    
+    .recommendation a {
+        color: #F0FF9D;
+        margin: auto;
+        padding-right: 3%;
+    }
+    
+    .recommended-videos {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 132%;
+        flex-wrap: wrap;
+    
+    }
+    
+    .recommendation {
+        line-height: 1em;
+        margin: 3%;
+        align-items: center;
+        font-size: .8em;
+    }
+    
+    .recommendation a {
+        font-size: .8em;
+    }
+    
+    .yt-link-recommendation {
+        margin-left: 6%;
+        width: 80%;
+    }
+    
+    .yt-link-recommendation:hover {
+        box-shadow: 0 0 0.5em #F0FF9D; 
+      }
+    .our-recommended{
+        text-align: center;
+    }
+    .yt-link {
+        font-size: .8rem;
+    }
+    .hide{
+        display: none;
+    }
   }
 
 
