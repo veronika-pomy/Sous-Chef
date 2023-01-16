@@ -188,12 +188,7 @@ document.querySelector(".search-btn").addEventListener("click", function () {
 document.querySelector(".search-this").addEventListener("keyup", function (event) {
    if(event.key == "Enter"){
        dish.search();
-       
-        
-
-   }
-
-
+   };
 })
  
 closeBtn.addEventListener("click", mainMenu)
