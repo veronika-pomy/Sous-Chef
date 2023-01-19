@@ -31,8 +31,6 @@ body {
     margin-bottom: 5%;
 }
 
-
-
 .sub-starter button {
     border-radius: 50%;
     border: none;
@@ -78,6 +76,7 @@ button:hover {
     padding-top: 2em;
     
 }
+
 .food-contents {
     display: flex;
     justify-content: space-evenly;
@@ -159,6 +158,7 @@ footer {
 
 
 }
+
 .video-display {
     display: flex;
     flex-direction: column;
@@ -179,6 +179,7 @@ footer {
     transform: scale(4);
     margin: 20% 20% 20% 20%;
 }
+
 .recommended-videos {
     display: flex;
     flex-direction: row;
@@ -234,8 +235,6 @@ footer {
     color: white;
     font-weight: bold;
 }
-
-/* styling history buttons */
 
 .search-history {
     display: flex;
@@ -353,7 +352,7 @@ footer {
 
   }
 
-/* for smartphones and smaller ipads - set flex-directtion to column for history and refresh buttons */
+/* for smartphones and smaller ipads */
 @media screen and (max-width: 768px) {
     .search-history {
         flex-direction: column;
@@ -486,5 +485,3 @@ footer {
         display: none;
     }
   }
-
-
