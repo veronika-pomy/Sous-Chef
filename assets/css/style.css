@@ -2,6 +2,7 @@ body {
     background-image: url("https://source.unsplash.com/2000x1100/?food");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Exo', sans-serif;
 }
 
 .starter h1 {
@@ -29,6 +30,7 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
+    
 }
 
 .sub-starter button {
@@ -52,6 +54,7 @@ body {
     font-size: 110%;
     cursor: pointer;
     transition: .2s ease-in-out;
+    
     
     
 }
@@ -240,6 +243,7 @@ footer {
     display: flex;
     justify-content: left;
     flex-flow: row wrap;
+    
 }
 
 .history-btn,
@@ -254,6 +258,8 @@ footer {
     font-weight: bold;
     font-style: italic;
     border: none;
+    font-family: 'Exo', sans-serif;
+    min-width: 8%;
     
 }
 
@@ -274,6 +280,8 @@ footer {
     font-style: italic;
     border: none;
     text-transform: capitalize;
+    font-family: 'Exo', sans-serif;
+    
 }
 
 .main-video-to-yt {
