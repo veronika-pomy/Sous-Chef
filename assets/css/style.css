@@ -54,6 +54,8 @@ body {
     font-size: 110%;
     cursor: pointer;
     transition: .2s ease-in-out;
+
+}
     
 button:hover {
     background: rgb(255, 200, 0);
