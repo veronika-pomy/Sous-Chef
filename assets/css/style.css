@@ -55,10 +55,6 @@ body {
     cursor: pointer;
     transition: .2s ease-in-out;
     
-    
-    
-}
-
 button:hover {
     background: rgb(255, 200, 0);
 }
@@ -181,6 +177,8 @@ footer {
 .video {
     transform: scale(4);
     margin: 20% 20% 20% 20%;
+    width: 12vw;
+    height: 12vh;
 }
 
 .recommended-videos {
@@ -201,7 +199,9 @@ footer {
 
 .recommendation {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
     line-height: 2em;
     border-radius: 30px;
     padding: 3%;
@@ -218,12 +218,16 @@ footer {
     color: #F0FF9D;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: start;
     line-height: 2em;
     border: 3px solid white;
     border-radius: 30px;
     padding: 3%;
     margin: 1%;
+    width: 20vw;
+    height: 20vh;
+    overflow: hidden;
 }
 
 .yt-link-recommendation:hover {
@@ -273,7 +277,7 @@ footer {
     background: #26885dd0;
     color: white;
     padding: 1em 1.5em 1em 1.5em;
-    margin: 1em;
+    margin:0 1em 1em 1em;
     font-size: 1rem;
     border-radius: 30px;
     font-weight: bold;
@@ -293,6 +297,14 @@ footer {
     padding-bottom: 3em;
 }
 
+.video-description {
+    font-size: 15px;
+}  
+
+img {
+    border-radius: 25px;
+}
+
 /* nutritional display for smaller display size */
 
 @media screen and (max-width: 1200px) {
@@ -303,7 +315,7 @@ footer {
     }
     .recommended-videos {
         flex-direction: column;
-    
+        align-items: center;
     }
     .food-contents {
         flex-direction: column;
@@ -324,8 +336,9 @@ footer {
         padding-right: 2%;
     }
     img {
-        width: 10em;
-        height: 10em;
+        width: 12vw;
+        height: 10vh;
+        border-radius: 25px;
     }
     .error-message {
         margin: 0% 0% 0% 0%;
@@ -336,9 +349,14 @@ footer {
     }
     .video {
         transform: scale(2);
-    }
+        width: 25vw;
+        height: 20vh;
+        }
+
     .recommendation {
+        flex-direction: row;
         align-items: center;
+        justify-content: space-between;
     }
     .pre-logo {
         font-size: .7em;
@@ -357,8 +375,14 @@ footer {
     .hide{
         display: none;
     }
+    .yt-link-recommendation {
+        width: 45vw;
+        height: 20vh;
+        align-items: stretch;
+        justify-content: center;
+    }
+}
 
-  }
 
 /* for smartphones and smaller ipads */
 @media screen and (max-width: 768px) {
@@ -376,13 +400,12 @@ footer {
         padding: 1em;
     }
     img {
-        width: 5em;
-        height: 5em;
+        width: 15vw;
+        height: 10vh;
     }
-
     .video {
-       transform: scale(1);
-
+       width: 25vw;
+       height: 15vh;
     }
     .pre-logo {
         font-size: .4em;
@@ -422,7 +445,7 @@ footer {
     .history-btn,
     .refresh-btn {
         padding: .5em 1em .5em 1em;
-        margin: .1em;   
+        margin: .3em;   
     }
     .error-message {
         margin: 0% 0% 0% 0%;
@@ -444,6 +467,8 @@ footer {
     }
     .video-area {
         width: 95%;
+        justify-content: center;
+        overflow: hidden;
     }
     .video-display {
         width: 81%;
@@ -458,6 +483,7 @@ footer {
     .recommended-videos {
         display: flex;
         flex-direction: column;
+        align-content: center;
         text-align: center;
         width: 132%;
         flex-wrap: wrap;
@@ -469,6 +495,7 @@ footer {
         margin: 3%;
         align-items: center;
         font-size: .8em;
+        flex-direction: column-reverse;
     }
     
     .recommendation a {
@@ -477,7 +504,8 @@ footer {
     
     .yt-link-recommendation {
         margin-left: 6%;
-        width: 80%;
+        width: 62vw;
+        height: 20vh;
     }
     
     .yt-link-recommendation:hover {
