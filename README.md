@@ -63,7 +63,7 @@ An application created for health conscious amateur cooks
 
 
 ## Link to deployed site
-![Check out Sous Chef here](https://veronika-pomy.github.io/Sous-Chef/)
+[Check out Sous Chef here!](https://veronika-pomy.github.io/Sous-Chef/)
 
 <p align="right">(<a href="#sous-chef">back to top</a>)</p>
 
